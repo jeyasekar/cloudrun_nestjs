@@ -1,13 +1,13 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/nestjstest/nestcloudrunimage', '.']
+  args: ['build', '-t', 'gcr.io/pret-plat-eval/nestcloudrunimage', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/nestjstest/nestcloudrunimage']
+  args: ['push', 'gcr.io/pret-plat-eval/nestcloudrunimage']
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'nest-service', '--image', 'gcr.io/nestjstest/nestcloudrunimage', '--region', 'europe-west1-c', '--platform', 'managed', '--port', '3000']
+  args: ['run', 'deploy', 'nest-service', '--image', 'gcr.io/pret-plat-eval/nestcloudrunimage', '--region', 'europe-west1-c', '--platform', 'managed', '--port', '3000']
 images:
-- gcr.io/nestjstest/nestcloudrunimage
+- gcr.io/pret-plat-eval/nestcloudrunimage
