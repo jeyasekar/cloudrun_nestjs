@@ -14,7 +14,9 @@ export class EmployeeController {
 
   @Get()
   findAll() {
-    console.log('findAll')
+    console.log('console.log')
+    console.info('console.info')
+    console.debug('console.debug')
     return this.employeeService.findAll();
   }
 
