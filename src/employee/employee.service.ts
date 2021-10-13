@@ -4,16 +4,16 @@ import { UpdateEmployeeDto } from './dto/update-employee.dto';
 
 @Injectable()
 export class EmployeeService {
-  create(createEmployeeDto: CreateEmployeeDto) {
-    return 'This action adds a new employee';
+  create(order: Order) {
+    return order;
   }
 
   findAll() {
-    return `This action returns all employee`;
+    return new Shop('pret','pret a manger','chennai');
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} employee`;
+  findOne() {
+    return new Category('Bread','Sweet Bread')
   }
 
   update(id: number, updateEmployeeDto: UpdateEmployeeDto) {
@@ -23,4 +23,26 @@ export class EmployeeService {
   remove(id: number) {
     return `This action removes a #${id} employee`;
   }
+}
+
+export class Shop{
+  constructor(public shopName?: string, public description?: string, public location?: string) {
+    console.log('shop model created')
+   
+  }
+}
+  export class Category{
+    constructor(public categoryName?: string, public description?: string) {
+      console.log('Category model created')
+     
+    }
+ 
+}
+
+export class Order{
+  constructor(public orderName?: string, public type?: string) {
+    console.log('Order model created')
+   
+  }
+
 }
